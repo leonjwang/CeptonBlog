@@ -57,7 +57,7 @@ In comparison, a `.mp4` is usually magnitudes smaller than the jpgs: Video forma
 
 Here is a 30 second video of a moving chessboard:
 
-[TODO: moving-board.mp4]
+![](./moving-board.mp4)
 
 Its 10.1 MB.
 
@@ -65,15 +65,14 @@ Using ffmpeg, the video is split it into separate images, one for every frame. T
 
 Here is the bmp folder for reference:
 
-[TODO: folder-example.png]
-
+![](./folder-example.png)
 Now, here are the sizes of the resulting splits:
 
-[TODO: sizes.png]
+![](./sizes.png)
 
 Surprisingly, jpg compression is much better than expected. However, it is still 7x larger than the mp4. Not to mention, the compressed images had a noticeable drop in quality.
 
-[TODO: jpgoutput_0001.jpg]
+![](./jpgoutput_0001.jpg)
 
 Hopefully this example illustrates why writing separate images is an issue.
 
@@ -95,7 +94,7 @@ The second issue is related to time syncing. Since we only record the offset bet
 
 The solution implemented is surprisingly simple; Assume the fetching of images is at an entirely arbitrary rate, and at every timestamp where we expect a frame, we write the most recently fetched frame instead.
 
-[TODO]
+[TODO: Illustration]
 
 The loss of time precision caused by this method is mostly negligible, due to the fact that the video has a much higher FPS than the lidar, and we only need a video frame every time we have a lidar frame.
 
