@@ -57,7 +57,7 @@ In comparison, a `.mp4` is usually magnitudes smaller than the jpgs: Video forma
 
 Here is a 30 second video of a moving chessboard:
 
-![](./moving-board.mp4)
+![](./video.png)
 
 Its 10.1 MB.
 
