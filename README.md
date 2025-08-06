@@ -70,11 +70,10 @@ Now, here are the sizes of the resulting splits:
 
 ![](./sizes.png)
 
-Surprisingly, jpg compression is much better than expected. However, it is still 7x larger than the mp4. Not to mention, the compressed images had a noticeable drop in quality.
-
-![](./jpgoutput_0001.jpg)
+Surprisingly, jpg compression is much better than expected. However, it is still 6x larger than the mp4.
 
 Hopefully this example illustrates why writing separate images is an issue.
+
 
 Now, the solution to this is surprisingly simple: Just use videos. They are better in both space efficiency and accessibility.
 
