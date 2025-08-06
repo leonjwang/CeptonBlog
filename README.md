@@ -1,6 +1,5 @@
 # Lidar Camera Calibration Pipeline
 
----
 ## Introduction
 
 Lidar camera calibration is the process of estimating the pose of a camera relative to a lidar. To achieve this, one must find corresponding points in space between the two perspectives. The most straightforward way to do this is by locating an object that appears in both the lidar and camera views.
@@ -12,7 +11,6 @@ As with any model, the more data points available, the more accurate the resulti
 
 This blog explains the second approach, and the challenges/methodology associated with each step along the way. 
 
----
 ## Part 1: Data and Prerequisites
 
 Before beginning calibration, one must first consider the form and collection of the data used. The goal is to have many matching lidar and camera frames of the same object in different locations. The simplest solution? A lidar and a camera recording of the same moving object.
@@ -32,7 +30,6 @@ Ideally, for ease of handling and future-proofing the data, we can have one piec
 
 Luckily, such a system already exists:
 
----
 ## Part 2: The CR (Cepton Record) Format
 
 The Cepton Record format was designed for this exact purpose: To collect multiple streams of data and combine them into one `.cr` file. It supports streams of lidar frames, images, and IMU data (although IMU is an orientation sensor, and isn't used in this project).
@@ -102,7 +99,6 @@ Unfortunately, this solution means compromising on the original goal of not havi
 
 As such, this is the solution we chose.
 
----
 ## Part 3: Recording Data
 
 The Cepton Record format is accompanied by a corresponding Rust tool: The Cepton Record Recorder. It already supports recording with lidar and IMU,  and modifying it to support a camera as well is not too difficult with the existence of the previously mentioned [Pylon CXX](https://crates.io/crates/pylon-cxx).
@@ -129,10 +125,11 @@ This method handles dropped frames rather gracefully. While it does introduce sm
 
 [TODO] (explain the math?)
 
----
 ## Part 4: Lidar Camera Calibration
 
-With two recordings and an offset, we can finally feed the info into a pipeline that takes corresponding frames, finds a common object, and then finds the pose of the camera. While the pipeline, which actually reads in the recordings and matches the frames by timestamps, isn't actually complete yet, a basic version of the calibration pipeline has been written.
+With both synchronized recordings, we can finally feed the data into a pipeline that takes corresponding frames, finds a common object, and then estimates the pose of the camera.
+
+While the data input portion of the pipeline, which reads in the recordings and matches the frames by timestamps, is still in progress, a basic version of the calibration pipeline has been implemented.
 
 Andrew Lauer has already written an excellent explanation on how this calibration is done in the readme of the repository [ceptontech/lidar_camera_calibration](https://github.com/ceptontech/lidar_camera_calibration). The following is what he wrote regarding the methodology of such a process:
 
@@ -168,10 +165,8 @@ Once a good estimation for $P$ has been found, the camera intrinsics, rotation, 
 
 $$P = K[R|t]$$
 
----
 ## Part 5: Usage
 
 
 
----
 ## Part 6: Future Improvements
