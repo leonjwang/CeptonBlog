@@ -190,4 +190,8 @@ Both of which will help streamline the process of training future lidar computer
 
 ## Conclusion
 
-The lidar camera calibration pipeline unifies two separate perspectives, paving the way for improved data handling/collection, easier validation/debugging, and also enhanced sensor fusion. More importantly, by utilizing the maturity of current image computer vision models, we hope to be able to accelerate the training and accuracy of lidar-based models. Lidar camera calibration is not just about calibration—it's about combining the strengths of lidar and camera models to accelerate computer perception as a whole.
+The lidar camera calibration pipeline unifies two separate perspectives, paving the way for improved data handling/collection, easier validation/debugging, and also enhanced sensor fusion.
+
+More importantly, by utilizing the maturity of current image computer vision models, we hope to be able to accelerate the training and accuracy of lidar-based models.
+
+Lidar camera calibration is not just about calibration—it's about combining the strengths of lidar and camera models to accelerate computer perception as a whole.
